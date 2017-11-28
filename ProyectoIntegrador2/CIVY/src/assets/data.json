@@ -1,0 +1,24 @@
+﻿{
+ 
+  "estado_civil": [
+    {
+      "valor": "CASADO",
+      "descripcion": "CASADO(A)"
+    },
+    {
+      "valor": "SOLTERO",
+      "descripcion": "SOLTERO(A)"
+    }
+  ],
+  "sexo": [
+    {
+      "valor": "M",
+      "descripcion": "MASCULINO"
+    },
+    {
+      "valor": "F",
+      "descripcion": "FEMENINO"
+    }
+  ]
+}
+

@@ -1,0 +1,133 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.4
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CIVY", "CIVY\CIVY.csproj", "{8A0774E9-ABDB-4B62-92D2-31EA1D81ADE8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CIVY.WebApi", "CIVY.WebApi\CIVY.WebApi.csproj", "{09E93934-A4DD-4CD0-A253-4C2AEBE5AB10}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CIVY.MODELOS", "CIVY.MODELOS\CIVY.MODELOS.csproj", "{88C8BA1B-261C-404D-B985-5280905945DC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CIVY.DATOS", "CIVY.DATOS\CIVY.DATOS.csproj", "{A24A70AC-F4CD-46DB-824B-A45C85420A15}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CIVY.NEGOCIOS", "CIVY.NEGOCIOS\CIVY.NEGOCIOS.csproj", "{B7029F5F-2147-4305-811B-BA38CA76E4EE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|ARM = Debug|ARM
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|ARM = Release|ARM
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8A0774E9-ABDB-4B62-92D2-31EA1D81ADE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A0774E9-ABDB-4B62-92D2-31EA1D81ADE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A0774E9-ABDB-4B62-92D2-31EA1D81ADE8}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{8A0774E9-ABDB-4B62-92D2-31EA1D81ADE8}.Debug|ARM.Build.0 = Debug|Any CPU
+		{8A0774E9-ABDB-4B62-92D2-31EA1D81ADE8}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{8A0774E9-ABDB-4B62-92D2-31EA1D81ADE8}.Debug|x64.Build.0 = Debug|Any CPU
+		{8A0774E9-ABDB-4B62-92D2-31EA1D81ADE8}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{8A0774E9-ABDB-4B62-92D2-31EA1D81ADE8}.Debug|x86.Build.0 = Debug|Any CPU
+		{8A0774E9-ABDB-4B62-92D2-31EA1D81ADE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A0774E9-ABDB-4B62-92D2-31EA1D81ADE8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A0774E9-ABDB-4B62-92D2-31EA1D81ADE8}.Release|ARM.ActiveCfg = Release|Any CPU
+		{8A0774E9-ABDB-4B62-92D2-31EA1D81ADE8}.Release|ARM.Build.0 = Release|Any CPU
+		{8A0774E9-ABDB-4B62-92D2-31EA1D81ADE8}.Release|x64.ActiveCfg = Release|Any CPU
+		{8A0774E9-ABDB-4B62-92D2-31EA1D81ADE8}.Release|x64.Build.0 = Release|Any CPU
+		{8A0774E9-ABDB-4B62-92D2-31EA1D81ADE8}.Release|x86.ActiveCfg = Release|Any CPU
+		{8A0774E9-ABDB-4B62-92D2-31EA1D81ADE8}.Release|x86.Build.0 = Release|Any CPU
+		{09E93934-A4DD-4CD0-A253-4C2AEBE5AB10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09E93934-A4DD-4CD0-A253-4C2AEBE5AB10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09E93934-A4DD-4CD0-A253-4C2AEBE5AB10}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{09E93934-A4DD-4CD0-A253-4C2AEBE5AB10}.Debug|ARM.Build.0 = Debug|Any CPU
+		{09E93934-A4DD-4CD0-A253-4C2AEBE5AB10}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{09E93934-A4DD-4CD0-A253-4C2AEBE5AB10}.Debug|x64.Build.0 = Debug|Any CPU
+		{09E93934-A4DD-4CD0-A253-4C2AEBE5AB10}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{09E93934-A4DD-4CD0-A253-4C2AEBE5AB10}.Debug|x86.Build.0 = Debug|Any CPU
+		{09E93934-A4DD-4CD0-A253-4C2AEBE5AB10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09E93934-A4DD-4CD0-A253-4C2AEBE5AB10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09E93934-A4DD-4CD0-A253-4C2AEBE5AB10}.Release|ARM.ActiveCfg = Release|Any CPU
+		{09E93934-A4DD-4CD0-A253-4C2AEBE5AB10}.Release|ARM.Build.0 = Release|Any CPU
+		{09E93934-A4DD-4CD0-A253-4C2AEBE5AB10}.Release|x64.ActiveCfg = Release|Any CPU
+		{09E93934-A4DD-4CD0-A253-4C2AEBE5AB10}.Release|x64.Build.0 = Release|Any CPU
+		{09E93934-A4DD-4CD0-A253-4C2AEBE5AB10}.Release|x86.ActiveCfg = Release|Any CPU
+		{09E93934-A4DD-4CD0-A253-4C2AEBE5AB10}.Release|x86.Build.0 = Release|Any CPU
+		{88C8BA1B-261C-404D-B985-5280905945DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88C8BA1B-261C-404D-B985-5280905945DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88C8BA1B-261C-404D-B985-5280905945DC}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{88C8BA1B-261C-404D-B985-5280905945DC}.Debug|ARM.Build.0 = Debug|Any CPU
+		{88C8BA1B-261C-404D-B985-5280905945DC}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{88C8BA1B-261C-404D-B985-5280905945DC}.Debug|x64.Build.0 = Debug|Any CPU
+		{88C8BA1B-261C-404D-B985-5280905945DC}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{88C8BA1B-261C-404D-B985-5280905945DC}.Debug|x86.Build.0 = Debug|Any CPU
+		{88C8BA1B-261C-404D-B985-5280905945DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88C8BA1B-261C-404D-B985-5280905945DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88C8BA1B-261C-404D-B985-5280905945DC}.Release|ARM.ActiveCfg = Release|Any CPU
+		{88C8BA1B-261C-404D-B985-5280905945DC}.Release|ARM.Build.0 = Release|Any CPU
+		{88C8BA1B-261C-404D-B985-5280905945DC}.Release|x64.ActiveCfg = Release|Any CPU
+		{88C8BA1B-261C-404D-B985-5280905945DC}.Release|x64.Build.0 = Release|Any CPU
+		{88C8BA1B-261C-404D-B985-5280905945DC}.Release|x86.ActiveCfg = Release|Any CPU
+		{88C8BA1B-261C-404D-B985-5280905945DC}.Release|x86.Build.0 = Release|Any CPU
+		{A24A70AC-F4CD-46DB-824B-A45C85420A15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A24A70AC-F4CD-46DB-824B-A45C85420A15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A24A70AC-F4CD-46DB-824B-A45C85420A15}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{A24A70AC-F4CD-46DB-824B-A45C85420A15}.Debug|ARM.Build.0 = Debug|Any CPU
+		{A24A70AC-F4CD-46DB-824B-A45C85420A15}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{A24A70AC-F4CD-46DB-824B-A45C85420A15}.Debug|x64.Build.0 = Debug|Any CPU
+		{A24A70AC-F4CD-46DB-824B-A45C85420A15}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{A24A70AC-F4CD-46DB-824B-A45C85420A15}.Debug|x86.Build.0 = Debug|Any CPU
+		{A24A70AC-F4CD-46DB-824B-A45C85420A15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A24A70AC-F4CD-46DB-824B-A45C85420A15}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A24A70AC-F4CD-46DB-824B-A45C85420A15}.Release|ARM.ActiveCfg = Release|Any CPU
+		{A24A70AC-F4CD-46DB-824B-A45C85420A15}.Release|ARM.Build.0 = Release|Any CPU
+		{A24A70AC-F4CD-46DB-824B-A45C85420A15}.Release|x64.ActiveCfg = Release|Any CPU
+		{A24A70AC-F4CD-46DB-824B-A45C85420A15}.Release|x64.Build.0 = Release|Any CPU
+		{A24A70AC-F4CD-46DB-824B-A45C85420A15}.Release|x86.ActiveCfg = Release|Any CPU
+		{A24A70AC-F4CD-46DB-824B-A45C85420A15}.Release|x86.Build.0 = Release|Any CPU
+		{B7029F5F-2147-4305-811B-BA38CA76E4EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7029F5F-2147-4305-811B-BA38CA76E4EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7029F5F-2147-4305-811B-BA38CA76E4EE}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{B7029F5F-2147-4305-811B-BA38CA76E4EE}.Debug|ARM.Build.0 = Debug|Any CPU
+		{B7029F5F-2147-4305-811B-BA38CA76E4EE}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{B7029F5F-2147-4305-811B-BA38CA76E4EE}.Debug|x64.Build.0 = Debug|Any CPU
+		{B7029F5F-2147-4305-811B-BA38CA76E4EE}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B7029F5F-2147-4305-811B-BA38CA76E4EE}.Debug|x86.Build.0 = Debug|Any CPU
+		{B7029F5F-2147-4305-811B-BA38CA76E4EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7029F5F-2147-4305-811B-BA38CA76E4EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7029F5F-2147-4305-811B-BA38CA76E4EE}.Release|ARM.ActiveCfg = Release|Any CPU
+		{B7029F5F-2147-4305-811B-BA38CA76E4EE}.Release|ARM.Build.0 = Release|Any CPU
+		{B7029F5F-2147-4305-811B-BA38CA76E4EE}.Release|x64.ActiveCfg = Release|Any CPU
+		{B7029F5F-2147-4305-811B-BA38CA76E4EE}.Release|x64.Build.0 = Release|Any CPU
+		{B7029F5F-2147-4305-811B-BA38CA76E4EE}.Release|x86.ActiveCfg = Release|Any CPU
+		{B7029F5F-2147-4305-811B-BA38CA76E4EE}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 6
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://proyectointegrador2.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = CIVY\\CIVY.csproj
+		SccProjectName1 = CIVY
+		SccLocalPath1 = CIVY
+		SccProjectUniqueName2 = CIVY.WebApi\\CIVY.WebApi.csproj
+		SccProjectName2 = CIVY.WebApi
+		SccLocalPath2 = CIVY.WebApi
+		SccProjectUniqueName3 = CIVY.MODELOS\\CIVY.MODELOS.csproj
+		SccProjectName3 = CIVY.MODELOS
+		SccLocalPath3 = CIVY.MODELOS
+		SccProjectUniqueName4 = CIVY.DATOS\\CIVY.DATOS.csproj
+		SccProjectName4 = CIVY.DATOS
+		SccLocalPath4 = CIVY.DATOS
+		SccProjectUniqueName5 = CIVY.NEGOCIOS\\CIVY.NEGOCIOS.csproj
+		SccProjectName5 = CIVY.NEGOCIOS
+		SccLocalPath5 = CIVY.NEGOCIOS
+	EndGlobalSection
+EndGlobal

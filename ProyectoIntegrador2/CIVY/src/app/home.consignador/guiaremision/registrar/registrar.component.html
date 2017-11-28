@@ -1,0 +1,107 @@
+﻿<div class="container" style="margin:10px 10px 10px 0px">
+    <div class="page-header position-center">
+        <h1>
+            REGISTRAR GUÍA DE REMISIÓN
+        </h1>
+    </div>
+
+    <div>
+        <fieldset class="groupbox">
+            <legend>Datos del Cliente</legend>
+            <div class="row">
+                <div class="col-sm-3">
+                    <label for="txt_nomcliente">Cliente</label>
+                    <input type="text" class="form-control input-sm margin-bottom" id="txt_nomcliente" placeholder="Ingrese nombre del Cliente" >
+                </div>
+                <div class="col-sm-4">
+                    <label for="txt_RUC">N° RUC</label>
+                    <input type="text" class="form-control input-sm margin-bottom" id="txt_RUC" placeholder="Ingrese numero de RUC">
+                </div>
+                <div class="col-sm-3">
+                    <label for="txt_fecEmision">fecha de Emision</label>
+                    <input type="text" class="form-control input-sm margin-bottom" id="txt_cmaxima" placeholder="Ingrese Capacidad máxima" >
+                </div>
+                <div class="col-sm-3">
+                    <label for="txt_direCliente">Direccion</label>
+                    <input type="text" class="form-control input-sm margin-bottom" id="txt_venc.soat" placeholder="Ingrese Venc.SOAT" >
+                </div>
+                <div class="col-sm-4">
+                    <label for="txt_dniCliente">Nro.DNI</label>
+                    <input type="text" class="form-control input-sm margin-bottom" id="txt_dniCliente" placeholder="Ingrese DNI" >
+                </div>
+
+            </div>
+        </fieldset>
+    </div>
+
+    <div>
+        <fieldset class="groupbox">
+            <legend>Datos Guía</legend>
+            <div class="row">
+                <div class="col-sm-3">
+                    <label for="txt_destino">Destino</label>
+                    <input type="text" class="form-control input-sm margin-bottom" id="txt_destino" placeholder="Ingrese Destino">
+                </div>
+                <div class="col-sm-4">
+                    <label for="txt_moneda">Moneda</label>
+                    <input type="text" class="form-control input-sm margin-bottom" id="txt_RUC" placeholder="S./Soles" >
+                </div>
+                <div class="col-sm-3">
+                    <label for="txt_origen">Origen</label>
+                    <input type="text" class="form-control input-sm margin-bottom" id="txt_origen" placeholder="CIVY SAC">
+                </div>
+                <div class="col-sm-3">
+                    <label for="txt_direCliente">IGV</label>
+                    <input type="text" class="form-control input-sm margin-bottom" id="txt_venc.soat" placeholder="18%">
+                </div>
+            </div>
+        </fieldset>
+    </div>
+
+    <div>
+        <fieldset class="groupbox">
+            <legend>Datos Transportista</legend>
+            <div class="row">
+                <div class="col-sm-3">
+                    <label for="txt_destino">Transportista</label>
+                    <input type="text" class="form-control input-sm margin-bottom" id="txt_destino" placeholder="Ingrese Destino">
+                </div>
+                <div class="col-sm-4">
+                    <label for="txt_moneda">Nro. Documento</label>
+                    <input type="text" class="form-control input-sm margin-bottom" id="txt_RUC" placeholder="S./Soles" >
+                </div>
+                <div class="col-sm-2">
+                    <label for="cb_vehiculo">Vehiculo</label>
+                    <select class="form-control input-sm margin-bottom" id="cb_vehiculo">
+                       
+                    </select>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+
+    <div>
+        <fieldset class="groupbox" style="margin: 0px;">
+            <div>
+                <table id="dt_guiaremision"
+                       class="table table-striped table-hover table-condensed"
+                       data-toggle="table"
+                       data-pagination="true"
+                       data-page-size="5"
+                       data-search="false">
+                    <thead>
+                        <tr>
+                            <th data-field="ID_Empleado" data-formatter="IconoOpciones" data-width="70" data-halign="center" data-valign="middle" data-align="center"></th>
+                            <th data-field="T_Nro_Documento" data-halign="center" data-width="100" data-valign="middle">Codigo</th>
+                            <th data-field="T_Nombre" data-halign="center" data-width="150" data-valign="middle">Descripcion</th>
+                            <th data-field="T_Apellido" data-halign="center" data-width="150" data-valign="middle">Cantidad</th>
+                            <th data-field="T_Direccion" data-halign="center" data-width="200" data-valign="middle">Costo Unidad</th>
+                            <th data-field="T_TipoEmpleado" data-halign="center" data-width="100" data-valign="middle">Monto Total</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </fieldset>
+    </div>
+
+</div>

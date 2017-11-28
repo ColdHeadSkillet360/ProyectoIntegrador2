@@ -1,0 +1,41 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" >CIVI SAC | Proyecto Integrador II</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cotización <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a (click)="RegistrarCO()">Registrar Cotización</a></li>
+                        <li><a (click)="ConsultarCO()">Consultar Cotización</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a (click)="AprobarCO()">Aprobar Cotizaciones</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Documento de Venta <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a (click)="RegistrarDV()">Registrar Factura o Boleta</a></li>
+                        <li><a (click)="ConsultarDV()">Consultar Factura o Boleta</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a (click)="ReporteDV()">Reporte Factura o Boleta</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">▼ <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a (click)="Salir()">Cerrar Sesión</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

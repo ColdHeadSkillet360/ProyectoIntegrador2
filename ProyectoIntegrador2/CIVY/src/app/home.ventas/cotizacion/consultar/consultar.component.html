@@ -1,0 +1,114 @@
+﻿<div class="container" style="margin:10px 10px 10px 0px">
+    <div class="page-header position-relative">
+        <h1>
+            Consultar Cotización
+        </h1>
+    </div>
+    <div>
+        <fieldset class="groupbox">
+            <legend>Filtro Busqueda</legend>
+
+            <div class="row">
+                <div class="col-sm-1" style="width: 26px;padding: 30px 0 0 12px">
+                    <input type="checkbox" id="chk_fechas" [checked]="checked" (change)="checked = !checked" (click)="Habilitar_Fechas_Busqueda()" />
+                </div>
+                <div class="col-sm-2">
+                    <label>Desde</label>
+                    <my-date-picker [options]="FechaInicioOptions" [(ngModel)]="ng_fecha_inicio" (dateChanged)="onStartDateChanged($event)" ></my-date-picker>
+                </div>
+                <div class="col-sm-2">
+                    <label>Hasta</label>
+                    <my-date-picker [options]="FechaFinOptions" [(ngModel)]="ng_fecha_fin" (dateChanged)="onEndDateChanged($event)" ></my-date-picker>
+                </div>
+                <div class="col-sm-3">
+                    <label for="txt_cliente">Cliente</label>
+                    <ng2-completer id="txt_cliente" placeholder="Ingresar cliente" [(ngModel)]="complete_cliente" (ngModelChange)="AutocompleteAsync($event)"  [datasource]="lst_cliente" [minSearchLength]="3"></ng2-completer>
+                </div>
+                <div class="col-sm-2">
+                    <label for="txt_nro_doc">Nro. Doc.</label>
+                    <input type="text" class="form-control input-sm margin-bottom" id="txt_empleado" [(ngModel)]="filtro_nro_documento" maxlength="8">
+                </div>
+                <div class="col-sm-2">
+                    <label for="cb_estadoCotizacion">Estado</label>
+                    <select class="form-control input-sm margin-bottom" id="cb_estadoCotizacion" [(ngModel)]="filtro_estado_cotizacion">
+                        <option *ngFor="let item of estado_documento" value={{item.id_estado_documento}}>
+                            {{item.descripcion}}
+                        </option>
+                    </select>
+                </div>
+                <div class="col-sm-2" align="right">
+                    <button (click)="Buscar_Cotizacion()" id="btn_buscar_cotizacion" class="btn btn-mini btn-primary" style="width: 120px;">
+                        <i class="fa fa-search"></i>Buscar
+                    </button>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+    <div>
+        <fieldset class="groupbox" style="margin: 0px;">
+            <input type="hidden" id="id_cotizacion" value="" />
+            <div>
+                <table id="dt_cotizacion"
+                       class="table table-striped table-hover table-condensed"
+                       data-toggle="table"
+                       data-pagination="true"
+                       data-page-size="5"
+                       data-page-list="[5, 10, 25, 30, All]"
+                       data-search="false"></table>
+            </div>
+        </fieldset>
+    </div>
+
+
+    <!-- Modal 2 click en el registro -->
+    <div class="modal fade" data-backdrop="static" role="dialog" aria-hidden="true" tabindex="-1" id="dlgEditarEliminar">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Seleccione una de estas opciones:</h4>
+                    <div class="modal-body" style="text-align: center">
+                        <button type="button" [disabled]="metodosIns.btn_editar" id="btn_modal_editar" (click)="Editar_Registro('#dlgAgregarEmpleado','#dlgEditarEliminar')" class="btn btn-success btn-outline fa fa-edit" style="width:100px;height:34px">
+                            Editar
+                        </button>
+                        <button type="button" [disabled]="metodosIns.btn_eliminar" id="btn_modal_eliminar" (click)="AbrirModalEliminar('#dlgConfirmEliminar','#dlgEditarEliminar')" class="btn btn-danger btn-outline fa fa-remove" style="width:100px;height:34px">
+                            Eliminar
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 3 eliminar -->
+    <div class="modal fade" id="dlgConfirmEliminar" data-backdrop="static" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h5 class="modal-title">¿Desea realmente eliminar el registro?</h5>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-danger" (click)="Eliminar_Registro('#dlgConfirmEliminar')">Eliminar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>

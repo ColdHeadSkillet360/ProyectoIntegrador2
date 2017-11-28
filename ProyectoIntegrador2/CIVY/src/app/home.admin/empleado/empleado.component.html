@@ -1,0 +1,247 @@
+﻿<div class="container" style="margin:10px 10px 10px 0px">
+    <div class="page-header position-relative">
+        <h1>
+            Mantenimiento Empleados
+        </h1>
+    </div>
+    <div>
+        <fieldset class="groupbox">
+            <legend>Datos Empleado</legend>
+            <div class="row">
+                <div class="col-sm-3">
+                    <label for="txt_empleado">Descripción</label>
+                    <input type="text" class="form-control input-sm margin-bottom" id="txt_empleado" placeholder="Ingrese Nombre" [(ngModel)]="filtro_descripcion">
+                </div>
+                <div class="col-sm-2">
+                    <label for="cb_tipoEmpleado">Tipo</label>
+                    <select class="form-control input-sm margin-bottom" id="cb_tipoEmpleado" [(ngModel)]="id_tipo_empleado_filtro">
+                        <option *ngFor="let item of tipoempleado" value={{item.id_tipo_empleado}}> {{item.descripcion}}
+                        </option>
+                    </select>
+                </div>
+                <div class="col-sm-7" align="right">
+                    <button (click)="Buscar_Empleado()" id="btn_buscar_empleado" class="btn btn-mini btn-primary" style="width: 120px;">
+                        <i class="fa fa-search"></i>Buscar
+                    </button>
+                    <button (click)="Limpiar_Filtros()" id="btn_limpiar_empleado" class="btn btn-mini btn-info" style="width: 120px;">
+                        <i class="fa fa-retweet"></i>Limpiar
+                    </button>
+                    <button (click)="AbrirModalRegistro('#dlgAgregarEmpleado');" type="button" data-toggle="modal"  id="btn_agregar_empleado" class="btn btn-mini btn-warning" style="width: 120px;">
+                        <i class="fa fa-plus-circle "></i>Agregar
+                    </button>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+
+
+    <div>
+        <fieldset class="groupbox" style="margin: 0px;">
+            <div>
+                <table id="dt_empleado"
+                       class="table table-striped table-hover table-condensed"
+                       data-toggle="table"
+                       data-pagination="true"
+                       data-page-size="5"
+                       data-page-list="[5, 10, 25, 30, All]"
+                       data-search="false">
+                </table>
+            </div>
+        </fieldset>
+    </div>
+
+    <!-- Modal registro y edición -->
+    <div class="modal fade" data-backdrop="static" role="dialog" aria-hidden="true" tabindex="-1" id="dlgAgregarEmpleado">
+        <div class="modal-dialog" style="width:1250px;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Empleado</h4>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" id="id_empleado" value="" />
+                    <input type="hidden" id="flg_operacion" value="0"/>
+                    <form [formGroup]="emp" (ngSubmit)="Grabar_Empleado(emp)">
+                        <div class="groupbox">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <label for="cbo_tipoempleado_ingreso">Tipo Empleado</label>
+                                    <select class="form-control input-sm margin-bottom" id="cbo_tipoempleado_ingreso" [(ngModel)]="id_tipo_empleado" formControlName="id_tipo_empleado">
+                                        <option *ngFor="let item of tipoempleado" value={{item.id_tipo_empleado}}>
+                                            {{item.descripcion}}
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-4">
+                                    <label for="txt_nombre">Nombres</label>
+                                    <input type="text" formControlName="nombres"  [(ngModel)]="nombres" class="form-control input-sm margin-bottom" id="txt_nombres" placeholder="" required/>
+                                    <div class="error" *ngIf="emp.controls.nombres.errors?.rangeLength">
+                                        El NOMBRE debe contener de 2 a 30 caracteres.
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <label for="txt_apellidopa">Ape. Paterno</label>
+                                    <input type="text" formControlName="ape_paterno" [(ngModel)]="ape_paterno" class="form-control input-sm margin-bottom" id="txt_apellidopa" placeholder="" required>
+                                    <div class="error" *ngIf="emp.controls.ape_paterno.errors?.rangeLength">
+                                        El APELLIDO PATERNO debe contener de 2 a 30 caracteres.
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <label for="txt_apellidoma">Ape. Materno</label>
+                                    <input type="text" formControlName="ape_materno" [(ngModel)]="ape_materno" class="form-control input-sm margin-bottom" id="txt_apellidoma" placeholder="" required />
+                                    <div class="error" *ngIf="emp.controls.ape_materno.errors?.rangeLength">
+                                        El APELLIDO MATERNO debe contener de 2 a 30 caracteres.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <label for="cbo_sexo">Sexo</label>
+                                    <select class="form-control input-sm margin-bottom" [(ngModel)]="select_sexo" formControlName="sexo">
+                                        <option *ngFor="let item of sexo" value={{item.valor}}>
+                                            {{item.descripcion}}
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class='col-sm-2'>
+                                    <label>Fecha Nac.</label>
+                                    <my-date-picker formControlName="fecha_nacimiento" name="mydate" [options]="myDatePickerOptions" [(ngModel)]="fecha_nac" (dateChanged)="fecha = $event.formatted"></my-date-picker>
+                                </div>
+                                <div class="col-sm-2">
+                                    <label for="txt_dni">DNI</label>
+                                    <input type="text" formControlName="dni" [(ngModel)]="dni" class="form-control input-sm margin-bottom" id="txt_dni" placeholder="" maxlength="8" minlength="8" required>
+                                    <div class="error" *ngIf="emp.controls.dni.errors?.number">
+                                        El numero de DNI debe ser numerico.
+                                    </div>
+                                    <div class="error" *ngIf="emp.controls.dni.errors?.minlength">
+                                        DNI debe contener 8 digitos.
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <label for="txt_direccion">Direcciòn</label>
+                                    <input type="text" formControlName="direccion" [(ngModel)]="direccion" class="form-control input-sm margin-bottom" id="txt_direccion" maxlength="45" placeholder="" required>
+                                    <div class="error" *ngIf="emp.controls.direccion.errors?.rangeLength">
+                                        La DIRECCIÓN debe contener de 2 a 30 caracteres.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-2">
+                                    <label for="txt_departamento">Departamento</label>
+                                    <input type="text" formControlName="departamento" [(ngModel)]="departamento" class="form-control input-sm margin-bottom" id="txt_departamento" maxlength="25" placeholder="" required>
+                                    <div class="error" *ngIf="emp.controls.departamento.errors?.rangeLength">
+                                        Debe ingresar el origen (DEPARTAMENTO) del empleado.
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <label for="txt_provincia">Provincia</label>
+                                    <input type="text" formControlName="provincia" [(ngModel)]="provincia" class="form-control input-sm margin-bottom" id="txt_provincia"  maxlength="25" placeholder="" required>
+                                    <div class="error" *ngIf="emp.controls.provincia.errors?.rangeLength">
+                                        Debe ingresar el origen (PROVINCIA) del empleado.
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <label for="txt_distrito">Distrito</label>
+                                    <input type="text" formControlName="distrito" [(ngModel)]="distrito" class="form-control input-sm margin-bottom" id="txt_distrito"  maxlength="25" placeholder="" required>
+                                    <div class="error" *ngIf="emp.controls.distrito.errors?.rangeLength">
+                                        Debe ingresar el origen (DISTRITO) del empleado.
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <label for="txt_telefono">Telefono</label>
+                                    <input type="text" formControlName="telefono" [(ngModel)]="telefono" class="form-control input-sm margin-bottom" id="txt_telefono"  maxlength="10" placeholder="" required>
+                                    <div class="error" *ngIf="emp.controls.telefono.errors?.number">
+                                        El numero telefonico debe contener digitos.
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <label for="txt_celular">Celular</label>
+                                    <input type="text" formControlName="celular" [(ngModel)]="celular" class="form-control input-sm margin-bottom" id="txt_celular" maxlength="9" placeholder="" required>
+                                    <div class="error" *ngIf="emp.controls.celular.errors?.number">
+                                        El numero celular debe contener digitos.
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <label for="cbo_estadocivil">Estado Civil</label>
+                                    <select class="form-control input-sm margin-bottom" [(ngModel)]="estado_civil" formControlName="estado_civil" >
+                                        <option *ngFor="let item of estadocivil" value={{item.valor}}>
+                                            {{item.descripcion}}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <label for="txt_email">Email</label>
+                                    <input type="text" formControlName="email" [(ngModel)]="email" class="form-control input-sm margin-bottom" id="txt_email" maxlength="45" placeholder="" required>
+                                    <div class="error" *ngIf="emp.controls.email.errors?.email">
+                                        El formato del EMAIL ingresado no es el correcto.
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <label for="cbo_estado">Estado</label>
+                                    <select class="form-control input-sm margin-bottom" [(ngModel)]="id_estado" formControlName="id_estado" disabled>
+                                        <option *ngFor="let item of estado" value={{item.id_estado}}>
+                                            {{item.estado_descripcion}}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row groupbox" style="padding: 20px 0 16px 0px">
+                            <div class="col-sm-12" align="center">
+                                <button type="button" class="btn btn-danger" data-dismiss="modal" id="btn_cancelar" style="width: 120px;">
+                                    <i class="fa fa-close"></i>Cancelar
+                                </button>
+                                <button type="submit" data-toggle="modal" [disabled]="emp.invalid" id="btn_agregar_empleado" class="btn btn-mini btn-success" style="width: 120px;">
+                                    <i class="fa fa-check "></i>Grabar
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal 2 click en el registro -->
+    <div class="modal fade" data-backdrop="static" role="dialog" aria-hidden="true" tabindex="-1" id="dlgEditarEliminar">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Seleccione una de estas opciones:</h4>
+                    <div class="modal-body" style="text-align: center">
+                        <button type="button" id="btn_modal_editar" (click)="Editar_Registro('#dlgAgregarEmpleado','#dlgEditarEliminar')"  class="btn btn-success btn-outline fa fa-edit" style="width:100px;height:34px">
+                            Editar
+                        </button>
+                        <button type="button" id="btn_modal_eliminar" (click)="AbrirModalEliminar('#dlgConfirmEliminar','#dlgEditarEliminar')"  class="btn btn-danger btn-outline fa fa-remove" style="width:100px;height:34px">
+                            Eliminar
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="dlgConfirmEliminar" data-backdrop="static" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h5 class="modal-title">¿Desea realmente eliminar el registro?</h5>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-danger" (click)="Eliminar_Registro('#dlgConfirmEliminar')">Eliminar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+

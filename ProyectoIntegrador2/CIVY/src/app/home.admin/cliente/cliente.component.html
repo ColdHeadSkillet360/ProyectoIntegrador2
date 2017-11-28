@@ -1,0 +1,293 @@
+﻿<div class="container" style="margin:10px 10px 10px 0px">
+    <div class="page-header position-relative">
+        <h1>
+            Mantenimiento Clientes
+        </h1>
+    </div>
+    <div>
+        <fieldset class="groupbox">
+            <legend>Datos Clientes</legend>
+            <div class="row">
+                <div class="col-sm-3">
+                    <label for="txt_cliente">Descripción</label>
+                    <input type="text" class="form-control input-sm margin-bottom" id="txt_cliente" placeholder="Ingrese Nombre" [(ngModel)]="filtro_descripcion">
+                </div>
+
+                <div class="col-sm-2">
+                    <label for="cb_tipoCliente">Tipo</label>
+                    <select class="form-control input-sm margin-bottom" id="cb_tipoCliente" [(ngModel)]="id_tipo_cliente_filtro">
+                        <option *ngFor="let item of tipocliente" value={{item.id_tipo_cliente}}>
+                            {{item.descripcion}}
+                        </option>
+                    </select>
+                </div>
+
+                <div class="col-sm-7" align="right">
+                    <button (click)="Buscar_Cliente()" id="btn_buscar_cliente" class="btn btn-mini btn-primary" style="width: 120px;">
+                        <i class="fa fa-search"></i>Buscar
+                    </button>
+                    <button (click)="Limpiar_Filtros()" id="btn_limpiar_cliente" class="btn btn-mini btn-info" style="width: 120px;">
+                        <i class="fa fa-retweet"></i>Limpiar
+                    </button>
+                    <button (click)="AbrirModalRegistro('#dlgAgregarCliente');" type="button" data-toggle="modal" id="btn_agregar_cliente" class="btn btn-mini btn-warning" style="width: 120px;">
+                        <i class="fa fa-plus-circle "></i>Agregar
+                    </button>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+
+
+    <div>
+        <fieldset class="groupbox" style="margin: 0px;">
+            <div>
+                <table id="dt_cliente"
+                       class="table table-striped table-hover table-condensed"
+                       data-toggle="table"
+                       data-pagination="true"
+                       data-page-size="5"
+                       data-search="false">
+                 
+                </table>
+            </div>
+        </fieldset>
+    </div>
+
+    <!-- Modal registro y edición -->
+    <div class="modal fade" data-backdrop="static" role="dialog" aria-hidden="true" tabindex="-1" id="dlgAgregarCliente">
+        <div class="modal-dialog" style="width:1250px;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Cliente</h4>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" id="tipocliente"/>
+                    <input type="hidden" id="id_cliente" value="" />
+                    <input type="hidden" id="flg_operacion" value="0" />
+
+                    <form (ngSubmit)="Ingresar()">
+                        <div class="groupbox">
+                            <div [formGroup]="comun">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <label for="cbo_tipocliente_ingreso">Tipo Cliente</label>
+                                        <select id="cbo_tipo_cliente" class="form-control input-sm margin-bottom" name="type"
+                                                (change)="handleSelectedValue()" [(ngModel)]="id_tipo_cliente" formControlName="id_tipo_cliente"> 
+                                            <option *ngFor="let item of tipocliente" value={{item.id_tipo_cliente}}>
+                                                {{item.descripcion}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div [formGroup]="natural">
+                                <div class="row">
+                                    <div class="col-sm-4" *ngIf="metodoVista()">
+                                        <label for="txt_nombre">Nombre</label>
+                                        <input type="text" formControlName="nombre"
+                                               [(ngModel)]="nombre" class="form-control input-sm margin-bottom"
+                                               id="txt_nombres" placeholder="" required />
+                                        <div class="error" *ngIf="natural.controls.nombre.errors?.rangeLength">
+                                            INGRESE NOMBRE DE 2 A 30 CARACTERES
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2" *ngIf="metodoVista()">
+                                        <label for="txt_apellidopa">Ape. Paterno</label>
+                                        <input type="text" formControlName="ape_paterno" [(ngModel)]="ape_paterno" class="form-control input-sm margin-bottom" id="txt_apellidopa" placeholder="" required>
+                                        <div class="error" *ngIf="natural.controls.ape_paterno.errors?.rangeLength">
+                                            INGRESE APELLIDO PATERNO DE 2 A 15 CARACTERES
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2" *ngIf="metodoVista()">
+                                        <label for="txt_apellidoma">Ape. Materno</label>
+                                        <input type="text" formControlName="ape_materno" [(ngModel)]="ape_materno" class="form-control input-sm margin-bottom" id="txt_apellidoma" placeholder="" required />
+                                        <div class="error" *ngIf="natural.controls.ape_materno.errors?.rangeLength">
+                                            INGRESE APELLIDO MATERNO DE 2 A 15 CARACTERES
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4" *ngIf="metodoVista()">
+                                        <label for="cbo_sexo">Sexo</label>
+                                        <select class="form-control input-sm margin-bottom" [(ngModel)]="select_sexo" formControlName="sexo">
+                                            <option *ngFor="let item of sexo" value={{item.valor}}>
+                                                {{item.descripcion}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-4" *ngIf="metodoVista()">
+                                        <label for="txt_dni">DNI</label>
+                                        <input type="text" formControlName="dni" [(ngModel)]="dni" class="form-control input-sm margin-bottom" id="txt_dni" placeholder="" maxlength="8" minlength="8" required>
+                                        <div class="error" *ngIf="natural.controls.dni.errors?.number">
+                                            El numero de DNI debe ser numerico.
+                                        </div>
+                                        <div class="error" *ngIf="natural.controls.dni.errors?.minlength">
+                                            DNI debe contener 8 digitos.
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4" *ngIf="metodoVista()">
+                                        <label for="txt_telefono">Telefono</label>
+                                        <input type="text" formControlName="telefono" [(ngModel)]="telefono" class="form-control input-sm margin-bottom" id="txt_telefono" maxlength="10" placeholder="" required>
+                                        <div class="error" *ngIf="natural.controls.telefono.errors?.number">
+                                            INGRESE EL NÚMERO TELEFONICO
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4" *ngIf="metodoVista()">
+                                        <label for="txt_celular">Celular</label>
+                                        <input type="text" formControlName="celular" [(ngModel)]="celular" class="form-control input-sm margin-bottom" id="txt_celular" maxlength="9" placeholder="" required>
+                                        <div class="error" *ngIf="natural.controls.celular.errors?.number">
+                                            INGRESE EL NÚMERO DE CELULAR
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div [formGroup]="comun">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <label for="txt_direccion">Direcciòn</label>
+                                        <input type="text" formControlName="direccion" [(ngModel)]="direccion" class="form-control input-sm margin-bottom" id="txt_direccion" maxlength="45" placeholder="" required>
+                                        <div class="error" *ngIf="comun.controls.direccion.errors?.rangeLength">
+                                            INGRESE DIRECCIÓN
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2" >
+                                        <label for="txt_referencia">Referencia</label>
+                                        <input type="text" formControlName="referencia" [(ngModel)]="referencia" class="form-control input-sm margin-bottom" id="txt_referencia" maxlength="20" placeholder="" required>
+                                        <div class="error" *ngIf="comun.controls.referencia.errors?.rangeLength">
+                                            INGRESE REFERENCIA
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <label for="txt_email">Email</label>
+                                        <input type="text" formControlName="email" [(ngModel)]="email" class="form-control input-sm margin-bottom" id="txt_email" maxlength="45" placeholder="" required>
+                                        <div class="error" *ngIf="comun.controls.email.errors?.email">
+                                            EL FORMATO DEL EMAIL NO ES EL CORRECTO
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <label for="cbo_estado">Estado</label>
+                                        <select class="form-control input-sm margin-bottom" [(ngModel)]="id_estado" formControlName="id_estado" disabled>
+                                            <option *ngFor="let item of estado" value={{item.id_estado}}>
+                                                {{item.estado_descripcion}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div [formGroup]="juridico" >
+                                <div class="row">
+                                    <div class="col-sm-4" *ngIf="!metodoVista()">
+                                        <label for="txt_nombre">Razon social</label>
+                                        <input type="text" formControlName="razonSocial"
+                                               [(ngModel)]="razonSocial" class="form-control input-sm margin-bottom"
+                                               id="txt_nombres" placeholder="" required />
+                                        <div class="error" *ngIf="juridico.controls.razonSocial.errors?.rangeLength">
+                                            INGRESE NOMBRE JURIDICO
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4" *ngIf="!metodoVista()">
+                                        <label for="txt_nombre">Nombre comercial</label>
+                                        <input type="text" formControlName="nComercial"
+                                               [(ngModel)]="nComercial" class="form-control input-sm margin-bottom"
+                                               id="txt_nombres" placeholder="" required />
+                                        <div class="error" *ngIf="juridico.controls.nComercial.errors?.rangeLength">
+                                            INGRESE NOMBRE COMERCIAL
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4" *ngIf="!metodoVista()">
+                                        <label for="txt_nombre">RUC</label>
+                                        <input type="text" formControlName="ruc"
+                                               [(ngModel)]="ruc" class="form-control input-sm margin-bottom"
+                                               id="txt_nombres" placeholder="" required />
+                                        <div class="error" *ngIf="juridico.controls.ruc.errors?.rangeLength">
+                                            INGRESE RUC
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6" *ngIf="!metodoVista()">
+                                        <label for="txt_telefono">Telefono 1</label>
+                                        <input type="text" formControlName="telefono1" [(ngModel)]="telefono1"
+                                               class="form-control input-sm margin-bottom" id="txt_telefono"
+                                               maxlength="10" placeholder="" required>
+                                        <div class="error" *ngIf="juridico.controls.telefono1.errors?.rangeLength">
+                                            INGRESE TELEFONO 1
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6" *ngIf="!metodoVista()">
+                                        <label for="txt_telefono">Telefono 2</label>
+                                        <input type="text" formControlName="telefono2" [(ngModel)]="telefono2" class="form-control input-sm margin-bottom"
+                                               id="txt_telefono" maxlength="10" placeholder="" required>
+                                        <div class="error" *ngIf="juridico.controls.telefono2.errors?.rangeLength">
+                                            INGRESE  TELEFONO 2
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row groupbox" style="padding: 20px 0 16px 0px">
+                            <div class="col-sm-12" align="center">
+                                <button type="button" class="btn btn-danger" data-dismiss="modal" id="btn_cancelar" style="width: 120px;">
+                                    <i class="fa fa-close"></i>Cancelar
+                                </button>
+                                <button type="submit" data-toggle="modal" [disabled]="comun.invalid || natural.invalid || juridico.invalid" id="btn_agregar_cliente" class="btn btn-mini btn-success" style="width: 120px;">
+                                    <i class="fa fa-check "></i>Grabar
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+               
+
+            </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+    <!-- Modal 2 click en el registro -->
+    <div class="modal fade" data-backdrop="static" role="dialog" aria-hidden="true" tabindex="-1" id="dlgEditarEliminar">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Seleccione una de estas opciones:</h4>
+                    <div class="modal-body" style="text-align: center">
+                        <button type="button" id="btn_modal_editar" (click)="Editar_Registro('#dlgAgregarCliente','#dlgEditarEliminar')" class="btn btn-success btn-outline fa fa-edit" style="width:100px;height:34px">
+                            Editar
+                        </button>
+                        <button type="button" id="btn_modal_eliminar" (click)="AbrirModalEliminar('#dlgConfirmEliminar','#dlgEditarEliminar')" class="btn btn-danger btn-outline fa fa-remove" style="width:100px;height:34px">
+                            Eliminar
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="dlgConfirmEliminar" data-backdrop="static" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h5 class="modal-title">¿Desea realmente eliminar el registro?</h5>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-danger" (click)="Eliminar_Registro('#dlgConfirmEliminar')">Eliminar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+

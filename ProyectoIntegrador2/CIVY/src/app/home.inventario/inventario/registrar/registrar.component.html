@@ -1,0 +1,130 @@
+﻿<div class="container" style="margin:10px 10px 10px 0px">
+    <div class="page-header position-relative">
+        <h1>
+            Registrar Productos
+        </h1>
+    </div>
+
+
+
+    <div>
+        <fieldset class="groupbox">
+            <legend>Datos de los Productos/Servicios</legend>
+            <input type="hidden" id="cancelar" value="0" />
+            <form (ngSubmit)="Grabar()">
+                <div class="groupbox">
+                    <div [formGroup]="comunServ">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <label for="cbo_tipoproducto_ingreso">Tipo Producto</label>
+                                <select class="form-control input-sm margin-bottom" 
+                                         (change)="handleSelectedValue()" id="cbo_tipoproducto_ingreso" [(ngModel)]="id_tipo_producto" formControlName="id_tipo_producto">
+                                    <option *ngFor="let item of tipoproducto" value={{item.id_tipo_producto}}>
+                                        {{item.descripcion}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                        <div [formGroup]="pro">
+                            <div class="row">
+
+
+                                <div class="col-sm-2" *ngIf="metodoVista()">
+                                    <label for="txt_apellidopa">Marca</label>
+                                    <input type="text" formControlName="marca" [(ngModel)]="marca" class="form-control input-sm margin-bottom" id="txt_apellidopa" placeholder="" required>
+                                    <div class="error" *ngIf="pro.controls.marca.errors?.rangeLength">
+                                        Debe ingresar la marca
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-2" *ngIf="metodoVista()">
+                                    <label for="txt_apellidoma">Modelo</label>
+                                    <input type="text" formControlName="modelo" [(ngModel)]="modelo" class="form-control input-sm margin-bottom" id="txt_apellidoma" placeholder="" required />
+                                    <div class="error" *ngIf="pro.controls.modelo.errors?.rangeLength">
+                                        Debe ingresar el modelo
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-2" *ngIf="metodoVista()">
+                                    <label for="txt_dni">stock</label>
+                                    <input type="text" formControlName="stock" [(ngModel)]="stock" class="form-control input-sm margin-bottom" id="txt_dni" placeholder="" maxlength="4" minlength="1" required>
+                                    <div class="error" *ngIf="pro.controls.stock.errors?.number">
+                                        El Stock debe ser numerico
+                                    </div>
+                                    <div class="error" *ngIf="pro.controls.stock.errors?.minlength">
+                                        Ingrese Stock
+                                    </div>
+                                </div>
+                                <div class="col-sm-4" *ngIf="metodoVista()">
+                                    <label for="txt_direccion">Unidad de Medida</label>
+                                    <input type="text" formControlName="unidad_medida" [(ngModel)]="unidad_medida" class="form-control input-sm margin-bottom" id="txt_direccion" maxlength="45" placeholder="" required>
+                                    <div class="error" *ngIf="pro.controls.unidad_medida.errors?.rangeLength">
+                                        Debe ingresar la unidad de medida
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                        </div>
+    
+                          
+                    <div [formGroup]="comunServ">
+                        <div class="row">
+                                                        
+                            <div class="col-sm-2">
+                                <label for="txt_departamento">Precio</label>
+                                <input type="text" formControlName="precio" [(ngModel)]="precio" class="form-control input-sm margin-bottom" id="txt_departamento" maxlength="25" placeholder="" required>
+                                <div class="error" *ngIf="comunServ.controls.precio.errors?.rangeLength">
+                                    Debe ingresar el precio
+                                </div>
+                            </div>
+
+                            <div class="col-sm-4">
+                                <label for="txt_nombre">Descripcion</label>
+                                <input type="text" formControlName="descripcion" [(ngModel)]="descripcion" class="form-control input-sm margin-bottom" id="txt_nombres" placeholder="" required />
+                                <div class="error" *ngIf="comunServ.controls.descripcion.errors?.rangeLength">
+                                    Debe ingresar la descripcion
+                                </div>
+                            </div>
+
+                            <div class="col-sm-2">
+                                <label for="txt_Codigo">Codigo</label>
+                                <input type="text" formControlName="codigo" [(ngModel)]="codigo" class="form-control input-sm margin-bottom" id="txt_Codigo" maxlength="10" placeholder="" required>
+                                <div class="error" *ngIf="comunServ.controls.codigo.errors?.rangeLength">
+                                    Ingrese el codigo de 10 caracters.
+                                </div>
+                            </div>
+
+
+                            <div class="col-sm-2">
+                                <label for="cbo_estado">Estado</label>
+                                <select class="form-control input-sm margin-bottom" [(ngModel)]="id_estado" formControlName="id_estado" disabled>
+                                    <option *ngFor="let item of estado" value={{item.id_estado}}>
+                                        {{item.estado_descripcion}}
+                                    </option>
+                                </select>
+                            </div>
+
+                          </div>
+
+                        </div>
+
+
+                    </div>
+                <div class="row groupbox" style="padding: 20px 0 16px 0px">
+                    <div class="col-sm-12" align="center">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" id="btn_cancelar" style="width: 120px;">
+                            <i class="fa fa-close"></i>Cancelar
+                        </button>
+                        <button type="submit" data-toggle="modal"  [disabled]="comunServ.invalid || pro.invalid "  id="btn_agregar_empleado" class="btn btn-mini btn-success" style="width: 120px;">
+                            <i class="fa fa-check "></i>Grabar
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+        </fieldset>
+    </div>
+</div>

@@ -1,0 +1,568 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8A0774E9-ABDB-4B62-92D2-31EA1D81ADE8}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CIVY</RootNamespace>
+    <AssemblyName>CIVY</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TypeScriptToolsVersion>2.1</TypeScriptToolsVersion>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <Use64BitIISExpress />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <Content Include="bs-config.json" />
+    <Content Include="package.json" />
+    <Content Include="src\app\home.admin\cliente\cliente.component.html" />
+    <Content Include="src\app\home.admin\empleado\empleado.component.html" />
+    <Content Include="src\app\home.admin\home.admin.component.html" />
+    <Content Include="src\app\home.consignador\guiaremision\consultar\consultar.component.html" />
+    <Content Include="src\app\home.consignador\guiaremision\registrar\registrar.component.html" />
+    <Content Include="src\app\home.consignador\guiaremision\reporte\reporte.component.html" />
+    <Content Include="src\app\home.consignador\home.consignador.component.html" />
+    <Content Include="src\app\home.consignador\vehiculo\vehiculo.component.html" />
+    <Content Include="src\app\home.inventario\home.inventario.component.html" />
+    <Content Include="src\app\home.inventario\inventario\consultar\consultar.component.html" />
+    <Content Include="src\app\home.inventario\inventario\registrar\registrar.component.html" />
+    <Content Include="src\app\home.ventas\cotizacion\aprobar\aprobar.component.html" />
+    <Content Include="src\app\home.ventas\cotizacion\consultar\consultar.component.html" />
+    <Content Include="src\app\home.ventas\documentoventa\consultar\consultar.component.html" />
+    <Content Include="src\app\home.ventas\documentoventa\registrar\registrar.component.html" />
+    <Content Include="src\app\home.ventas\documentoventa\reporte\reporte.component.html" />
+    <Content Include="src\app\home.ventas\home.ventas.component.html" />
+    <Content Include="src\app\home.ventas\cotizacion\registrar\registrar.component.html" />
+    <Content Include="src\build\css\civy.css" />
+    <Content Include="src\build\images\editar.png" />
+    <Content Include="src\build\images\eliminar.png" />
+    <Content Include="src\build\images\search_icon.png" />
+    <Content Include="src\build\js\jquery-1.12.4.min.js" />
+    <Content Include="src\documentos\querys\query_civy 1.0.sql" />
+    <Content Include="src\tsconfig.json" />
+    <Content Include="src\vendors\alertify\css\alertify.bootstrap.css" />
+    <Content Include="src\vendors\alertify\css\alertify.core.css" />
+    <Content Include="src\vendors\alertify\css\alertify.default.css" />
+    <Content Include="src\vendors\alertify\js\alertify.min.js" />
+    <Content Include="src\vendors\bootstrap\dist\css\bootstrap-table.css" />
+    <Content Include="src\vendors\bootstrap\dist\css\bootstrap-table.min.css" />
+    <Content Include="src\vendors\bootstrap\dist\css\bootstrap.icon-large.css" />
+    <Content Include="src\vendors\bootstrap\dist\css\bootstrap.icon-large.min.css" />
+    <Content Include="src\vendors\bootstrap\dist\css\dataTables.bootstrap.min.css" />
+    <Content Include="src\vendors\bootstrap\dist\fonts\css\font-awesome.css" />
+    <Content Include="src\vendors\bootstrap\dist\fonts\css\font-awesome.min.css" />
+    <Content Include="src\vendors\bootstrap\dist\fonts\fonts\fontawesome-webfont.svg" />
+    <Content Include="src\vendors\bootstrap\dist\glyphicons.png" />
+    <Content Include="src\vendors\bootstrap\dist\js\bootstrap-table-locale-all.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\bootstrap-table-locale-all.min.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\bootstrap-table.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\bootstrap-table.min.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\dataTables.bootstrap.min.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-af-ZA.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-af-ZA.min.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-ar-SA.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-ar-SA.min.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-ca-ES.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-ca-ES.min.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-cs-CZ.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-cs-CZ.min.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-da-DK.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-da-DK.min.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-de-DE.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-de-DE.min.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-el-GR.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-el-GR.min.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-en-US.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-en-US.min.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-es-AR.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-es-AR.min.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-es-CL.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-es-CL.min.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-es-CR.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-es-CR.min.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-es-ES.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-es-ES.min.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-es-MX.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-es-MX.min.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-es-NI.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-es-NI.min.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-es-SP.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-es-SP.min.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-et-EE.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-et-EE.min.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-fa-IR.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-fa-IR.min.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-fr-BE.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-fr-BE.min.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-fr-FR.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-fr-FR.min.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-he-IL.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-he-IL.min.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-hr-HR.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-hr-HR.min.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-hu-HU.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-hu-HU.min.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-id-ID.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-id-ID.min.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-it-IT.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-it-IT.min.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-ja-JP.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-ja-JP.min.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-ka-GE.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-ka-GE.min.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-ko-KR.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-ko-KR.min.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-ms-MY.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-ms-MY.min.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-nb-NO.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-nb-NO.min.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-nl-NL.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-nl-NL.min.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-pl-PL.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-pl-PL.min.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-pt-BR.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-pt-BR.min.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-pt-PT.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-pt-PT.min.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-ro-RO.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-ro-RO.min.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-ru-RU.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-ru-RU.min.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-sk-SK.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-sk-SK.min.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-sv-SE.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-sv-SE.min.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-th-TH.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-th-TH.min.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-tr-TR.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-tr-TR.min.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-uk-UA.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-uk-UA.min.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-ur-PK.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-ur-PK.min.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-uz-Latn-UZ.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-uz-Latn-UZ.min.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-vi-VN.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-vi-VN.min.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-zh-CN.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-zh-CN.min.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-zh-TW.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\locale\bootstrap-table-zh-TW.min.js" />
+    <Content Include="tslint.json" />
+    <Content Include="src\app\app.component.html" />
+    <Content Include="src\vendors\bootstrap\.bower.json" />
+    <Content Include="src\vendors\bootstrap\bower.json" />
+    <Content Include="src\vendors\bootstrap\CHANGELOG.md" />
+    <Content Include="src\vendors\bootstrap\dist\css\bootstrap-theme.css.map" />
+    <Content Include="src\vendors\bootstrap\dist\css\bootstrap-theme.min.css.map" />
+    <Content Include="src\vendors\bootstrap\dist\css\bootstrap.css.map" />
+    <Content Include="src\vendors\bootstrap\dist\css\bootstrap.min.css.map" />
+    <Content Include="src\vendors\bootstrap\dist\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="src\vendors\bootstrap\dist\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="src\vendors\bootstrap\dist\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="src\vendors\bootstrap\dist\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="src\vendors\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="src\vendors\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="src\vendors\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="src\vendors\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="src\vendors\bootstrap\grunt\.jshintrc" />
+    <Content Include="src\vendors\bootstrap\grunt\configBridge.json" />
+    <Content Include="src\vendors\bootstrap\grunt\sauce_browsers.yml" />
+    <Content Include="src\vendors\bootstrap\js\.jscsrc" />
+    <Content Include="src\vendors\bootstrap\js\.jshintrc" />
+    <Content Include="src\vendors\bootstrap\less\.csscomb.json" />
+    <Content Include="src\vendors\bootstrap\less\.csslintrc" />
+    <Content Include="src\vendors\bootstrap\less\alerts.less" />
+    <Content Include="src\vendors\bootstrap\less\badges.less" />
+    <Content Include="src\vendors\bootstrap\less\bootstrap.less" />
+    <Content Include="src\vendors\bootstrap\less\breadcrumbs.less" />
+    <Content Include="src\vendors\bootstrap\less\button-groups.less" />
+    <Content Include="src\vendors\bootstrap\less\buttons.less" />
+    <Content Include="src\vendors\bootstrap\less\carousel.less" />
+    <Content Include="src\vendors\bootstrap\less\close.less" />
+    <Content Include="src\vendors\bootstrap\less\code.less" />
+    <Content Include="src\vendors\bootstrap\less\component-animations.less" />
+    <Content Include="src\vendors\bootstrap\less\dropdowns.less" />
+    <Content Include="src\vendors\bootstrap\less\forms.less" />
+    <Content Include="src\vendors\bootstrap\less\glyphicons.less" />
+    <Content Include="src\vendors\bootstrap\less\grid.less" />
+    <Content Include="src\vendors\bootstrap\less\input-groups.less" />
+    <Content Include="src\vendors\bootstrap\less\jumbotron.less" />
+    <Content Include="src\vendors\bootstrap\less\labels.less" />
+    <Content Include="src\vendors\bootstrap\less\list-group.less" />
+    <Content Include="src\vendors\bootstrap\less\media.less" />
+    <Content Include="src\vendors\bootstrap\less\mixins.less" />
+    <Content Include="src\vendors\bootstrap\less\mixins\alerts.less" />
+    <Content Include="src\vendors\bootstrap\less\mixins\background-variant.less" />
+    <Content Include="src\vendors\bootstrap\less\mixins\border-radius.less" />
+    <Content Include="src\vendors\bootstrap\less\mixins\buttons.less" />
+    <Content Include="src\vendors\bootstrap\less\mixins\center-block.less" />
+    <Content Include="src\vendors\bootstrap\less\mixins\clearfix.less" />
+    <Content Include="src\vendors\bootstrap\less\mixins\forms.less" />
+    <Content Include="src\vendors\bootstrap\less\mixins\gradients.less" />
+    <Content Include="src\vendors\bootstrap\less\mixins\grid-framework.less" />
+    <Content Include="src\vendors\bootstrap\less\mixins\grid.less" />
+    <Content Include="src\vendors\bootstrap\less\mixins\hide-text.less" />
+    <Content Include="src\vendors\bootstrap\less\mixins\image.less" />
+    <Content Include="src\vendors\bootstrap\less\mixins\labels.less" />
+    <Content Include="src\vendors\bootstrap\less\mixins\list-group.less" />
+    <Content Include="src\vendors\bootstrap\less\mixins\nav-divider.less" />
+    <Content Include="src\vendors\bootstrap\less\mixins\nav-vertical-align.less" />
+    <Content Include="src\vendors\bootstrap\less\mixins\opacity.less" />
+    <Content Include="src\vendors\bootstrap\less\mixins\pagination.less" />
+    <Content Include="src\vendors\bootstrap\less\mixins\panels.less" />
+    <Content Include="src\vendors\bootstrap\less\mixins\progress-bar.less" />
+    <Content Include="src\vendors\bootstrap\less\mixins\reset-filter.less" />
+    <Content Include="src\vendors\bootstrap\less\mixins\reset-text.less" />
+    <Content Include="src\vendors\bootstrap\less\mixins\resize.less" />
+    <Content Include="src\vendors\bootstrap\less\mixins\responsive-visibility.less" />
+    <Content Include="src\vendors\bootstrap\less\mixins\size.less" />
+    <Content Include="src\vendors\bootstrap\less\mixins\tab-focus.less" />
+    <Content Include="src\vendors\bootstrap\less\mixins\table-row.less" />
+    <Content Include="src\vendors\bootstrap\less\mixins\text-emphasis.less" />
+    <Content Include="src\vendors\bootstrap\less\mixins\text-overflow.less" />
+    <Content Include="src\vendors\bootstrap\less\mixins\vendor-prefixes.less" />
+    <Content Include="src\vendors\bootstrap\less\modals.less" />
+    <Content Include="src\vendors\bootstrap\less\navbar.less" />
+    <Content Include="src\vendors\bootstrap\less\navs.less" />
+    <Content Include="src\vendors\bootstrap\less\normalize.less" />
+    <Content Include="src\vendors\bootstrap\less\pager.less" />
+    <Content Include="src\vendors\bootstrap\less\pagination.less" />
+    <Content Include="src\vendors\bootstrap\less\panels.less" />
+    <Content Include="src\vendors\bootstrap\less\popovers.less" />
+    <Content Include="src\vendors\bootstrap\less\print.less" />
+    <Content Include="src\vendors\bootstrap\less\progress-bars.less" />
+    <Content Include="src\vendors\bootstrap\less\responsive-embed.less" />
+    <Content Include="src\vendors\bootstrap\less\responsive-utilities.less" />
+    <Content Include="src\vendors\bootstrap\less\scaffolding.less" />
+    <Content Include="src\vendors\bootstrap\less\tables.less" />
+    <Content Include="src\vendors\bootstrap\less\theme.less" />
+    <Content Include="src\vendors\bootstrap\less\thumbnails.less" />
+    <Content Include="src\vendors\bootstrap\less\tooltip.less" />
+    <Content Include="src\vendors\bootstrap\less\type.less" />
+    <Content Include="src\vendors\bootstrap\less\utilities.less" />
+    <Content Include="src\vendors\bootstrap\less\variables.less" />
+    <Content Include="src\vendors\bootstrap\less\wells.less" />
+    <Content Include="src\vendors\bootstrap\LICENSE" />
+    <Content Include="src\vendors\bootstrap\nuget\bootstrap.less.nuspec" />
+    <Content Include="src\vendors\bootstrap\nuget\bootstrap.nuspec" />
+    <Content Include="src\vendors\bootstrap\nuget\MyGet.ps1" />
+    <Content Include="src\vendors\bootstrap\package.json" />
+    <Content Include="src\vendors\bootstrap\README.md" />
+    <Content Include="src\vendors\font-awesome\.bower.json" />
+    <Content Include="src\vendors\font-awesome\.gitignore" />
+    <Content Include="src\vendors\font-awesome\.npmignore" />
+    <Content Include="src\vendors\font-awesome\bower.json" />
+    <Content Include="src\vendors\font-awesome\css\font-awesome.css.map" />
+    <Content Include="src\vendors\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="src\vendors\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="src\vendors\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="src\vendors\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="src\vendors\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="src\vendors\font-awesome\less\animated.less" />
+    <Content Include="src\vendors\font-awesome\less\bordered-pulled.less" />
+    <Content Include="src\vendors\font-awesome\less\core.less" />
+    <Content Include="src\vendors\font-awesome\less\fixed-width.less" />
+    <Content Include="src\vendors\font-awesome\less\font-awesome.less" />
+    <Content Include="src\vendors\font-awesome\less\icons.less" />
+    <Content Include="src\vendors\font-awesome\less\larger.less" />
+    <Content Include="src\vendors\font-awesome\less\list.less" />
+    <Content Include="src\vendors\font-awesome\less\mixins.less" />
+    <Content Include="src\vendors\font-awesome\less\path.less" />
+    <Content Include="src\vendors\font-awesome\less\rotated-flipped.less" />
+    <Content Include="src\vendors\font-awesome\less\screen-reader.less" />
+    <Content Include="src\vendors\font-awesome\less\stacked.less" />
+    <Content Include="src\vendors\font-awesome\less\variables.less" />
+    <Content Include="src\vendors\font-awesome\scss\font-awesome.scss" />
+    <Content Include="src\vendors\font-awesome\scss\_animated.scss" />
+    <Content Include="src\vendors\font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="src\vendors\font-awesome\scss\_core.scss" />
+    <Content Include="src\vendors\font-awesome\scss\_fixed-width.scss" />
+    <Content Include="src\vendors\font-awesome\scss\_icons.scss" />
+    <Content Include="src\vendors\font-awesome\scss\_larger.scss" />
+    <Content Include="src\vendors\font-awesome\scss\_list.scss" />
+    <Content Include="src\vendors\font-awesome\scss\_mixins.scss" />
+    <Content Include="src\vendors\font-awesome\scss\_path.scss" />
+    <Content Include="src\vendors\font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="src\vendors\font-awesome\scss\_screen-reader.scss" />
+    <Content Include="src\vendors\font-awesome\scss\_stacked.scss" />
+    <Content Include="src\vendors\font-awesome\scss\_variables.scss" />
+    <Content Include="src\vendors\nprogress\.bower.json" />
+    <Content Include="src\vendors\nprogress\bower.json" />
+    <Content Include="src\vendors\nprogress\component.json" />
+    <Content Include="src\vendors\nprogress\History.md" />
+    <Content Include="src\vendors\nprogress\License.md" />
+    <Content Include="src\vendors\nprogress\Notes.md" />
+    <Content Include="src\vendors\nprogress\Readme.md" />
+    <Content Include="src\vendors\animate.css\.bower.json" />
+    <Content Include="src\vendors\animate.css\animate-config.json" />
+    <Content Include="src\vendors\animate.css\bower.json" />
+    <Content Include="src\vendors\animate.css\package.json" />
+    <Content Include="src\vendors\bootstrap\dist\fonts\fonts\fontawesome-webfont.eot" />
+    <Content Include="src\vendors\bootstrap\dist\fonts\fonts\fontawesome-webfont.ttf" />
+    <Content Include="src\vendors\bootstrap\dist\fonts\fonts\fontawesome-webfont.woff" />
+    <Content Include="src\vendors\bootstrap\dist\fonts\fonts\FontAwesome.otf" />
+    <Content Include="src\vendors\bootstrap\dist\fonts\less\bordered-pulled.less" />
+    <Content Include="src\vendors\bootstrap\dist\fonts\less\core.less" />
+    <Content Include="src\vendors\bootstrap\dist\fonts\less\fixed-width.less" />
+    <Content Include="src\vendors\bootstrap\dist\fonts\less\font-awesome.less" />
+    <Content Include="src\vendors\bootstrap\dist\fonts\less\icons.less" />
+    <Content Include="src\vendors\bootstrap\dist\fonts\less\larger.less" />
+    <Content Include="src\vendors\bootstrap\dist\fonts\less\list.less" />
+    <Content Include="src\vendors\bootstrap\dist\fonts\less\mixins.less" />
+    <Content Include="src\vendors\bootstrap\dist\fonts\less\path.less" />
+    <Content Include="src\vendors\bootstrap\dist\fonts\less\rotated-flipped.less" />
+    <Content Include="src\vendors\bootstrap\dist\fonts\less\spinning.less" />
+    <Content Include="src\vendors\bootstrap\dist\fonts\less\stacked.less" />
+    <Content Include="src\vendors\bootstrap\dist\fonts\less\variables.less" />
+    <Content Include="src\vendors\bootstrap\dist\fonts\scss\font-awesome.scss" />
+    <Content Include="src\vendors\bootstrap\dist\fonts\scss\_bordered-pulled.scss" />
+    <Content Include="src\vendors\bootstrap\dist\fonts\scss\_core.scss" />
+    <Content Include="src\vendors\bootstrap\dist\fonts\scss\_fixed-width.scss" />
+    <Content Include="src\vendors\bootstrap\dist\fonts\scss\_icons.scss" />
+    <Content Include="src\vendors\bootstrap\dist\fonts\scss\_larger.scss" />
+    <Content Include="src\vendors\bootstrap\dist\fonts\scss\_list.scss" />
+    <Content Include="src\vendors\bootstrap\dist\fonts\scss\_mixins.scss" />
+    <Content Include="src\vendors\bootstrap\dist\fonts\scss\_path.scss" />
+    <Content Include="src\vendors\bootstrap\dist\fonts\scss\_rotated-flipped.scss" />
+    <Content Include="src\vendors\bootstrap\dist\fonts\scss\_spinning.scss" />
+    <Content Include="src\vendors\bootstrap\dist\fonts\scss\_stacked.scss" />
+    <Content Include="src\vendors\bootstrap\dist\fonts\scss\_variables.scss" />
+    <Content Include="src\assets\data.json" />
+    <Content Include="src\documentos\entregable 05\Justificación del proyecto - Avance Tecnico 05.docx" />
+    <Content Include="src\documentos\entregable 05\release plan.xlsx" />
+    <Content Include="src\documentos\entregable 05\sprint backlog_avance.xlsx" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="src\build\css\custom.css" />
+    <Content Include="src\build\css\custom.min.css" />
+    <Content Include="src\build\css\login\degrade.png" />
+    <Content Include="src\build\css\login\img_01.jpg" />
+    <Content Include="src\build\css\login\img_02.jpg" />
+    <Content Include="src\build\css\login\img_03.jpg" />
+    <Content Include="src\build\css\login\img_04.jpg" />
+    <Content Include="src\build\css\slideshow.css" />
+    <Content Include="src\build\images\back_disabled.png" />
+    <Content Include="src\build\images\back_enabled.png" />
+    <Content Include="src\build\images\back_enabled_hover.png" />
+    <Content Include="src\build\images\forward_disabled.png" />
+    <Content Include="src\build\images\forward_enabled.png" />
+    <Content Include="src\build\images\forward_enabled_hover.png" />
+    <Content Include="src\build\images\loading.gif" />
+    <Content Include="src\build\js\custom.js" />
+    <Content Include="src\build\js\custom.min.js" />
+    <Content Include="src\favicon.ico" />
+    <Content Include="src\index.html" />
+    <Content Include="src\styles.css" />
+    <Content Include="src\systemjs-angular-loader.js" />
+    <Content Include="src\systemjs.config.extras.js" />
+    <Content Include="src\systemjs.config.js" />
+    <Content Include="src\vendors\animate.css\animate.css" />
+    <Content Include="src\vendors\animate.css\animate.min.css" />
+    <Content Include="src\vendors\animate.css\gulpfile.js" />
+    <Content Include="src\vendors\bootstrap\dist\css\bootstrap-theme.css" />
+    <Content Include="src\vendors\bootstrap\dist\css\bootstrap-theme.min.css" />
+    <Content Include="src\vendors\bootstrap\dist\css\bootstrap.css" />
+    <Content Include="src\vendors\bootstrap\dist\css\bootstrap.min.css" />
+    <Content Include="src\vendors\bootstrap\dist\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="src\vendors\bootstrap\dist\js\bootstrap.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\bootstrap.min.js" />
+    <Content Include="src\vendors\bootstrap\dist\js\npm.js" />
+    <Content Include="src\vendors\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="src\vendors\bootstrap\Gruntfile.js" />
+    <Content Include="src\vendors\bootstrap\grunt\bs-commonjs-generator.js" />
+    <Content Include="src\vendors\bootstrap\grunt\bs-glyphicons-data-generator.js" />
+    <Content Include="src\vendors\bootstrap\grunt\bs-lessdoc-parser.js" />
+    <Content Include="src\vendors\bootstrap\grunt\bs-raw-files-generator.js" />
+    <Content Include="src\vendors\bootstrap\js\affix.js" />
+    <Content Include="src\vendors\bootstrap\js\alert.js" />
+    <Content Include="src\vendors\bootstrap\js\button.js" />
+    <Content Include="src\vendors\bootstrap\js\carousel.js" />
+    <Content Include="src\vendors\bootstrap\js\collapse.js" />
+    <Content Include="src\vendors\bootstrap\js\dropdown.js" />
+    <Content Include="src\vendors\bootstrap\js\modal.js" />
+    <Content Include="src\vendors\bootstrap\js\popover.js" />
+    <Content Include="src\vendors\bootstrap\js\scrollspy.js" />
+    <Content Include="src\vendors\bootstrap\js\tab.js" />
+    <Content Include="src\vendors\bootstrap\js\tooltip.js" />
+    <Content Include="src\vendors\bootstrap\js\transition.js" />
+    <Content Include="src\vendors\bootstrap\package.js" />
+    <Content Include="src\vendors\font-awesome\css\font-awesome.css" />
+    <Content Include="src\vendors\font-awesome\css\font-awesome.min.css" />
+    <Content Include="src\vendors\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="src\vendors\font-awesome\HELP-US-OUT.txt" />
+    <Content Include="src\vendors\nprogress\index.html" />
+    <Content Include="src\vendors\nprogress\nprogress.css" />
+    <Content Include="src\vendors\nprogress\nprogress.js" />
+    <Content Include="src\vendors\nprogress\support\extras.css" />
+    <Content Include="src\vendors\nprogress\support\style.css" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="src\app\app.component.ts" />
+    <TypeScriptCompile Include="src\app\app.module.ts" />
+    <TypeScriptCompile Include="src\app\app.validacion.ts" />
+    <TypeScriptCompile Include="src\app\estado.ts" />
+    <TypeScriptCompile Include="src\app\home.admin\cliente\cliente.component.ts" />
+    <TypeScriptCompile Include="src\app\home.admin\cliente\cliente.service.ts" />
+    <TypeScriptCompile Include="src\app\home.admin\cliente\cliente.ts" />
+    <TypeScriptCompile Include="src\app\home.admin\cliente\comun.ts" />
+    <TypeScriptCompile Include="src\app\home.admin\cliente\juridico.ts" />
+    <TypeScriptCompile Include="src\app\home.admin\cliente\tipocliente.ts" />
+    <TypeScriptCompile Include="src\app\home.admin\empleado\empleado.component.ts" />
+    <TypeScriptCompile Include="src\app\home.admin\empleado\empleado.service.ts" />
+    <TypeScriptCompile Include="src\app\home.admin\empleado\empleado.ts" />
+    <TypeScriptCompile Include="src\app\home.admin\empleado\tipoempleado.ts" />
+    <TypeScriptCompile Include="src\app\home.admin\home.admin.component.ts" />
+    <TypeScriptCompile Include="src\app\home.admin\home.admin.module.ts" />
+    <TypeScriptCompile Include="src\app\home.consignador\guiaremision\consultar\consultar.component.ts" />
+    <TypeScriptCompile Include="src\app\home.consignador\guiaremision\registrar\registrar.component.ts" />
+    <TypeScriptCompile Include="src\app\home.consignador\guiaremision\reporte\resporte.component.ts" />
+    <TypeScriptCompile Include="src\app\home.consignador\home.consignador.component.ts" />
+    <TypeScriptCompile Include="src\app\home.consignador\home.consignador.module.ts" />
+    <TypeScriptCompile Include="src\app\home.consignador\vehiculo\vehiculo.service.ts" />
+    <TypeScriptCompile Include="src\app\home.consignador\vehiculo\vehiculo.component.ts" />
+    <TypeScriptCompile Include="src\app\home.consignador\vehiculo\vehiculo.ts" />
+    <TypeScriptCompile Include="src\app\home.inventario\home.inventario.component.ts" />
+    <TypeScriptCompile Include="src\app\home.inventario\home.inventario.module.ts" />
+    <TypeScriptCompile Include="src\app\home.inventario\inventario\consultar\consultar.component.ts" />
+    <TypeScriptCompile Include="src\app\home.inventario\inventario\producto.service.ts" />
+    <TypeScriptCompile Include="src\app\home.inventario\inventario\producto.ts" />
+    <TypeScriptCompile Include="src\app\home.inventario\inventario\registrar\registrar.component.ts" />
+    <TypeScriptCompile Include="src\app\home.inventario\inventario\tipoproducto.ts" />
+    <TypeScriptCompile Include="src\app\home.ventas\cotizacion\aprobar\aprobar.component.ts" />
+    <TypeScriptCompile Include="src\app\home.ventas\cotizacion\consultar\consultar.component.ts" />
+    <TypeScriptCompile Include="src\app\home.ventas\cotizacion\cotizacion.service.ts" />
+    <TypeScriptCompile Include="src\app\home.ventas\cotizacion\cotizacion.ts" />
+    <TypeScriptCompile Include="src\app\home.ventas\cotizacion\estado.documento.ts" />
+    <TypeScriptCompile Include="src\app\home.ventas\cotizacion\tipo.documento.ts" />
+    <TypeScriptCompile Include="src\app\home.ventas\documentoventa\consultar\consultar.component.ts" />
+    <TypeScriptCompile Include="src\app\home.ventas\documentoventa\registrar\registrar.component.ts" />
+    <TypeScriptCompile Include="src\app\home.ventas\documentoventa\reporte\reporte.component.ts" />
+    <TypeScriptCompile Include="src\app\home.ventas\home.ventas.component.ts" />
+    <TypeScriptCompile Include="src\app\home.ventas\home.ventas.module.ts" />
+    <TypeScriptCompile Include="src\app\home.ventas\cotizacion\registrar\registrar.component.ts" />
+    <TypeScriptCompile Include="src\app\usuario.service.ts" />
+    <TypeScriptCompile Include="src\app\usuario.ts" />
+    <TypeScriptCompile Include="src\app\assets.service.ts" />
+    <TypeScriptCompile Include="src\assets\sexo.ts" />
+    <TypeScriptCompile Include="src\assets\estado_civil.ts" />
+    <TypeScriptCompile Include="src\main.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>64985</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:64985/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
